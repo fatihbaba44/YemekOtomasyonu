@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"  >
+
+    <h:form id="fastfood-table">
+
+
+        <h:dataTable style="font-size: xx-small;" class="table table-striped table-hover" value="#{fastFoodBEAN.list}" var="fastfood">
+            <h:column>
+                <f:facet name="header">FASTFOOD ID</f:facet>
+                <h:commandLink action="#{fastFoodBEAN.updateForm(fastfood)}" value="#{fastfood.fastfoodid}" />
+
+            </h:column>
+            <h:column>
+                <f:facet name="header">FASTFOOD ISMI</f:facet>
+                    #{fastfood.fastfoodismi}
+            </h:column>
+            <h:column>
+                <f:facet name="header">FASTFOOD KALORI</f:facet>
+                    #{fastfood.fastfoodkalori}
+            </h:column>
+            <h:column>
+                <f:facet name="header">FASTFOOD FIYAT</f:facet>
+                    #{fastfood.fastfoodfiyat}
+            </h:column>
+
+
+
+            <h:column>
+                <h:form>
+
+                    <f:facet name="header">DELETE</f:facet>
+                    <h:commandButton styleClass="btn btn-sm btn-danger" action="#{fastFoodBEAN.delete(fastfood)}" value="Delete" />
+                </h:form>
+            </h:column>
+        </h:dataTable>  
+
+    </h:form>
+</ui:composition>
+
